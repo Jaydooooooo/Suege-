@@ -1,9 +1,3 @@
-# vps上 nano /root/servertraffic.py
-# sudo apt install python3 python3-pip
-# pip3 install psutil
-#!/usr/bin/env python3
-# Sestea
- 
 import http.server
 import socketserver
 import json
@@ -11,7 +5,7 @@ import time
 import psutil
  
 # The port number of the local HTTP server, which can be modified
-port = 7122
+port = 8531
  
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
