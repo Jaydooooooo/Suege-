@@ -1,0 +1,23 @@
+apt update && apt upgrade -y
+
+sudo apt install python3 python3-pip
+
+pip3 install psutil
+
+nano /root/servertraffic.py
+
+粘贴 servertraffic.py 的内容
+
+nano /etc/systemd/system/servertraffic.service
+
+粘贴 servertraffic.service 的内容
+
+启动并激活这个服务：
+
+sudo systemctl start servertraffic.service
+
+sudo systemctl enable servertraffic.service
+
+查看服务状态以确保它已经运行：
+
+sudo systemctl status servertraffic.service
