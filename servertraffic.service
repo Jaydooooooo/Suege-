@@ -1,3 +1,4 @@
+# nano  /etc/systemd/system/servertraffic.service
 [Unit]
 Description=Server Traffic Monitor
  
