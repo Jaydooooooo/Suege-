@@ -7,7 +7,7 @@ name：Panel的标题
 icon：Panel的图标
 
 实例：
-argument = url=http://127.0.0.1:7122&name=花里胡哨才是生产力&icon=bolt.horizontal.icloud.fill
+argument = url=http://127.0.0.1:8531&name=花里胡哨才是生产力&icon=bolt.horizontal.icloud.fill
 
 */
 
