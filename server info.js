@@ -34,14 +34,14 @@ argument = url=http://127.0.0.1:7122&name=花里胡哨才是生产力&icon=bolt.
     '3': '#EF476F'
   };
   const col = Diydecide(0, 30, 70, parseInt(jsonData.mem_usage));
-  panel.title = params.name || 'Server Info';
+  panel.title = params.name || '服务器信息';
   panel.icon = params.icon || 'bolt.horizontal.icloud.fill';
   panel["icon-color"] = shifts[col];
-  panel.content = `CPU:    ${cpuUsage}        |  MEM:    ${memUsage}\n` +
-    `Recv: ${bytesToSize(outTraffic)}  |  Sent: ${bytesToSize(inTraffic)}\n` +
-    `Total: ${trafficSize}\n` +
-    `Uptime: ${formatUptime(jsonData.uptime)}\n` +
-    `Last Update: ${timeString}`;
+  panel.content = `CPU:    ${cpuUsage}        |  内存:    ${memUsage}\n` +
+    `入站: ${bytesToSize(outTraffic)}  |  出站: ${bytesToSize(inTraffic)}\n` +
+    `双向合计: ${trafficSize}\n` +
+    `在线时长: ${formatUptime(jsonData.uptime)}\n` +
+    `更新时间: ${timeString}`;
 
   $done(panel);
 })().catch((e) => {
