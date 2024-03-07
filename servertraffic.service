@@ -1,0 +1,12 @@
+[Unit]
+Description=Server Traffic Monitor
+ 
+[Service]
+Type=simple
+WorkingDirectory=/root/
+User=root
+ExecStart=/usr/bin/python3 /root/servertraffic.py
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
