@@ -7,4 +7,4 @@
 Serverinfo = script-name= Serverinfo,update-interval=3600
  
 [Script]
-Serverinfo = type=generic,script-path=https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/serverinfo.js, argument = url=http://127.0.0.1:7122&name=Server Info&icon=party.popper
+Serverinfo = type=generic,script-path=https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/serverinfo.js, argument = url=http://127.0.0.1:8531&name=Server Info&icon=party.popper
