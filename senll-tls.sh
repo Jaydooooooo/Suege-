@@ -59,7 +59,7 @@ EOF
 
 cat > /root/snelldocker/snell-conf/snell.conf << EOF
 [snell-server]
-listen = 0.0.0.0:$RANDOM_PORT
+listen = ::0:$RANDOM_PORT
 psk = $RANDOM_PSK
 ipv6 = false
 EOF
