@@ -1,12 +1,8 @@
 #!/bin/bash
 
-# 检查docker中是否存在senll相关的容器
-if docker ps -a | grep -q 'senll'; then
-  cd /root/snelldocker
-  docker compose down
-  echo -e "\e[32m清除旧环境成功！\e[0m"
-  sleep 3
-fi
+# 停止当前的Docker容器配置
+cd /root/snelldocker
+docker compose down
 
 # 更新系统包和升级
 apt-get update && apt-get -y upgrade
@@ -26,7 +22,7 @@ fi
 # 安装 Docker Compose 插件
 apt-get install docker-compose-plugin -y
 
-# 创建所需目录
+# 确保所需目录存在
 mkdir -p /root/snelldocker/snell-conf
 
 # 生成随机端口和密码
@@ -68,16 +64,12 @@ psk = $RANDOM_PSK
 ipv6 = false
 EOF
 
-# 切换目录
+# 拉取最新的Docker镜像并启动容器
 cd /root/snelldocker
-
-# 拉取并启动 Docker 容器
 docker compose pull && docker compose up -d
 
-# 获取本机IP地址
+# 获取本机IP地址和IP所在国家
 HOST_IP=$(curl -s http://checkip.amazonaws.com)
-
-# 获取IP所在国家
 IP_COUNTRY=$(curl -s http://ipinfo.io/$HOST_IP/country)
 
 # 输出所需信息，包含IP所在国家
