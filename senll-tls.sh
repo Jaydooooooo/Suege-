@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# 检查docker中是否存在senll相关的容器
+if docker ps -a | grep -q 'senll'; then
+  cd /root/snelldocker
+  docker compose down
+  echo -e "\e[32m清除旧环境成功！\e[0m"
+  sleep 3
+fi
+
 # 更新系统包和升级
 apt-get update && apt-get -y upgrade
 
@@ -26,7 +34,7 @@ RANDOM_PORT=$(shuf -i 30000-65000 -n 1)
 RANDOM_PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 20) # snell的随机密码
 RANDOM_SHADOW_TLS_PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 10) # shadow-tls的随机密码
 
-# 创建 docker-compose.yml
+# 创建 docker-compose.yml 和 snell.conf 配置文件
 cat > /root/snelldocker/docker-compose.yml << EOF
 version: "3.8"
 services:
@@ -53,7 +61,6 @@ services:
       - PASSWORD=$RANDOM_SHADOW_TLS_PSK
 EOF
 
-# 创建 snell.conf 配置文件
 cat > /root/snelldocker/snell-conf/snell.conf << EOF
 [snell-server]
 listen = 0.0.0.0:$RANDOM_PORT
