@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "----欢迎使用----"
+echo "1，一键安装surge-v4 shadow-tls v3"
+echo "2，一键卸载surge-v4 shadow-tls v3"
+read -p "请选择一个操作（1或2）: " user_choice
+
+case $user_choice in
+1)
+    echo "正在安装surge-v4 shadow-tls v3..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/senll-tls.sh -O senll-tls.sh
+    chmod +x senll-tls.sh
+    ./senll-tls.sh
+    ;;
+2)
+    echo "正在卸载surge-v4 shadow-tls v3..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/uninstll_surge_with_tls -O uninstll_surge_with_tls.sh
+    chmod +x uninstll_surge_with_tls.sh
+    ./uninstll_surge_with_tls.sh
+    ;;
+*)
+    echo "无效的输入，脚本退出。"
+    exit 1
+    ;;
+esac
