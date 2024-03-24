@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "----欢迎使用surge docker----"
+echo "----------------欢迎使用surge docker--------------------"
 echo "1，一键安装surge-v4 shadow-tls v3"
 echo "2，一键安装surge-v4"
-echo "3，一键卸载"
+echo "3，一键卸载（会卸载整个容器）除非你清楚自己在做什么，否则慎用"
 read -p "请选择一个操作（1、2或3）: " user_choice
 
 case $user_choice in
