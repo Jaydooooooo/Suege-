@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# 停止并删除容器
+cd /root/snelldocker && docker compose down
+
+# 卸载 Docker Compose 插件
+apt-get remove docker-compose-plugin -y
+
+# 卸载 Docker
+apt-get purge -y docker-ce docker-ce-cli containerd.io
+apt-get autoremove -y
+
+# 删除 Docker 相关目录
+rm -rf /var/lib/docker
+rm -rf /etc/docker
+rm -rf /root/.docker
+rm -rf /usr/local/bin/docker-compose
+
+# 删除 snell docker 目录
+rm -rf /root/snelldocker
+
+# 卸载完成提示
+echo "所有安装的内容已卸载完毕。"
