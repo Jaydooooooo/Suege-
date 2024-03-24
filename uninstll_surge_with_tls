@@ -1,23 +1,37 @@
 #!/bin/bash
 
-# 停止并删除容器
-cd /root/snelldocker && docker compose down
+# 停止并删除Docker容器
+echo "正在停止并删除Docker容器..."
+cd /root/snelldocker
+docker compose down >/dev/null 2>&1
+echo "Docker容器已停止并删除。"
 
-# 卸载 Docker Compose 插件
-apt-get remove docker-compose-plugin -y
-
-# 卸载 Docker
-apt-get purge -y docker-ce docker-ce-cli containerd.io
-apt-get autoremove -y
-
-# 删除 Docker 相关目录
-rm -rf /var/lib/docker
-rm -rf /etc/docker
-rm -rf /root/.docker
-rm -rf /usr/local/bin/docker-compose
-
-# 删除 snell docker 目录
+# 删除安装和配置文件
+echo "正在删除安装和配置文件..."
 rm -rf /root/snelldocker
 
-# 卸载完成提示
-echo "所有安装的内容已卸载完毕。"
+# 检查Docker是否安装，如果安装则卸载
+if [ -x "$(command -v docker)" ]; then
+    echo "正在卸载Docker..."
+    apt-get remove --purge -y docker docker-engine docker.io containerd runc >/dev/null 2>&1
+    apt-get autoremove -y >/dev/null 2>&1
+    echo "Docker已卸载。"
+else
+    echo "Docker未安装，跳过卸载步骤。"
+fi
+
+# 检查Docker Compose插件是否安装，如果安装则卸载
+if [ -x "$(command -v docker-compose)" ]; then
+    echo "正在卸载Docker Compose插件..."
+    apt-get remove --purge -y docker-compose-plugin >/dev/null 2>&1
+    apt-get autoremove -y >/dev/null 2>&1
+    echo "Docker Compose插件已卸载。"
+else
+    echo "Docker Compose插件未安装，跳过卸载步骤。"
+fi
+
+# 清理未使用的Docker资源
+docker system prune -a -f >/dev/null 2>&1
+
+# 完成
+echo "卸载完成。"
