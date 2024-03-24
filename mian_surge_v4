@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "----欢迎使用----"
+echo "----欢迎使用surge docker----"
 echo "1，一键安装surge-v4 shadow-tls v3"
 echo "2，一键安装surge-v4"
 echo "3，一键卸载"
