@@ -2,8 +2,9 @@
 
 echo "----欢迎使用----"
 echo "1，一键安装surge-v4 shadow-tls v3"
-echo "2，一键卸载surge-v4 shadow-tls v3"
-read -p "请选择一个操作（1或2）: " user_choice
+echo "2，一键安装surge-v4"
+echo "3，一键卸载"
+read -p "请选择一个操作（1、2或3）: " user_choice
 
 case $user_choice in
 1)
@@ -13,6 +14,12 @@ case $user_choice in
     ./senll-tls.sh
     ;;
 2)
+    echo "正在安装surge-v4..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/snellv4-docker -O snellv4-docker.sh
+    chmod +x snellv4-docker.sh
+    ./snellv4-docker.sh
+    ;;
+3)
     echo "正在卸载surge-v4 shadow-tls v3..."
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/uninstll_surge_with_tls -O uninstll_surge_with_tls.sh
     chmod +x uninstll_surge_with_tls.sh
