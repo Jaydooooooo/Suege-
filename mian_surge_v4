@@ -4,7 +4,8 @@ echo "----------------欢迎使用surge docker--------------------"
 echo "1，一键安装surge-v4 shadow-tls v3"
 echo "2，一键安装surge-v4"
 echo "3，一键卸载（会卸载整个容器）除非你清楚自己在做什么，否则慎用"
-read -p "请选择一个操作（1、2或3）: " user_choice
+echo "4，一键安装hy2"
+read -p "请选择一个操作（1、2、3或4）: " user_choice
 
 case $user_choice in
 1)
@@ -25,8 +26,15 @@ case $user_choice in
     chmod +x uninstll_surge_with_tls.sh
     ./uninstll_surge_with_tls.sh
     ;;
+4)
+    echo "正在安装hy2..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/hy2.sh -O hy2.sh
+    chmod +x hy2.sh
+    ./hy2.sh
+    ;;
 *)
     echo "无效的输入，脚本退出。"
     exit 1
     ;;
 esac
+
