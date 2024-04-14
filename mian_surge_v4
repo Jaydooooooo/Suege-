@@ -14,9 +14,12 @@ read -p "请选择一个操作（0、1、2、3、4、5或6）: " user_choice
 case $user_choice in
 0)
     echo "正在更新脚本..."
-    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/mian_surge_v4 -O $(basename $0)
-    chmod +x $(basename $0)
-    echo "脚本已更新。请重新运行脚本以使用新版本。"
+    CURRENT_SCRIPT="$(basename $0)"
+    rm -f "$CURRENT_SCRIPT"
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/mian_surge_v4 -O "$CURRENT_SCRIPT"
+    chmod +x "$CURRENT_SCRIPT"
+    echo "脚本已更新。正在重新执行脚本..."
+    exec ./"$CURRENT_SCRIPT"
     exit 0
     ;;
 1)
