@@ -2,7 +2,7 @@
 
 echo "----------------欢迎使用Surge脚本工具--------------------"
 echo "选项列表："
-echo "0. 更新这个脚本-1"
+echo "0. 更新这个脚本"
 echo "1. docker- 一键安装Surge-v4"
 echo "2. docker- 一键安装Surge-v4 shadow-tls v3"
 echo "3. 一键安装Hy2"
