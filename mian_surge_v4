@@ -2,11 +2,11 @@
 
 echo "----------------欢迎使用Surge脚本工具--------------------"
 echo "选项列表："
-echo "1. 一键安装Surge-v4"
-echo "2. 一键安装Surge-v4 shadow-tls v3"
+echo "1. 一键安装Surge-v4-docker版"
+echo "2. 一键安装Surge-v4 shadow-tls v3-docker版"
 echo "3. 一键安装Hy2"
-echo "4. 一键安装Senll-无docker版本"
-echo "5. 一键卸载（会卸载整个容器）- 除非你清楚自己在做什么，否则慎用"
+echo "4. 一键安装Senll-无docker版"
+echo "5. 一键卸载docker版（会卸载docker）"
 read -p "请选择一个操作（1、2、3、4或5）: " user_choice
 
 case $user_choice in
