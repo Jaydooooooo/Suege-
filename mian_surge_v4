@@ -6,8 +6,8 @@ echo "0. 更新这个脚本"
 echo "1. docker- 一键安装Surge-v4"
 echo "2. docker- 一键安装Surge-v4 shadow-tls v3"
 echo "3. 一键安装Hy2"
-echo "4. 无docker 一键安装Senll-无docker版本"
-echo "5. 无docker 一键卸载Senll-无docker版本"
+echo "4. 无docker 一键安装Senll"
+echo "5. 无docker 一键卸载Senll"
 echo "6. 一键卸载docker snell（会卸载docker）"
 read -p "请选择一个操作（0、1、2、3、4、5或6）: " user_choice
 
