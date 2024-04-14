@@ -14,18 +14,19 @@ read -p "请选择一个操作（0、1、2、3、4、5或6）: " user_choice
 case $user_choice in
 0)
     echo "正在更新脚本..."
-    CURRENT_SCRIPT="$(basename $0)"
+    CURRENT_SCRIPT_PATH="$(realpath $0)"
+    CURRENT_SCRIPT="$(basename $CURRENT_SCRIPT_PATH)"
     TEMP_SCRIPT="temp_update_script.sh"
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/mian_surge_v4 -O "$TEMP_SCRIPT"
     if [ $? -eq 0 ]; then
         chmod +x "$TEMP_SCRIPT"
-        cp "$TEMP_SCRIPT" "$CURRENT_SCRIPT"
+        cp "$TEMP_SCRIPT" "$CURRENT_SCRIPT_PATH"
         rm "$TEMP_SCRIPT"
         echo "脚本已更新。正在重新执行脚本..."
-        exec ./"$CURRENT_SCRIPT"
+        exec "$CURRENT_SCRIPT_PATH"
     else
         echo "更新失败，请检查网络连接或URL是否正确。"
-        rm -f "$TEMP_SCRIPT"  # 确保删除临时文件
+        rm -f "$TEMP_SCRIPT"
     fi
     exit 0
     ;;
