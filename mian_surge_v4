@@ -2,15 +2,23 @@
 
 echo "----------------欢迎使用Surge脚本工具--------------------"
 echo "选项列表："
+echo "0. 更新这个脚本"
 echo "1. docker- 一键安装Surge-v4"
 echo "2. docker- 一键安装Surge-v4 shadow-tls v3"
 echo "3. 一键安装Hy2"
-echo "4. 无docker 一键安装Senll"
-echo "5. 无docker 一键卸载Senll"
+echo "4. 无docker 一键安装Senll-无docker版本"
+echo "5. 无docker 一键卸载Senll-无docker版本"
 echo "6. 一键卸载docker snell（会卸载docker）"
-read -p "请选择一个操作（1、2、3、4、5或6）: " user_choice
+read -p "请选择一个操作（0、1、2、3、4、5或6）: " user_choice
 
 case $user_choice in
+0)
+    echo "正在更新脚本..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/mian_surge_v4 -O $(basename $0)
+    chmod +x $(basename $0)
+    echo "脚本已更新。请重新运行脚本以使用新版本。"
+    exit 0
+    ;;
 1)
     echo "正在安装Surge-v4..."
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/snellv4-docker -O snellv4-docker.sh
