@@ -2,7 +2,7 @@
 
 echo "----------------欢迎使用Surge脚本工具--------------------"
 echo "选项列表："
-echo "0. 更新这个脚本"
+echo "0. 更新这个脚本（1）"
 echo "1. docker- 一键安装Surge-v4"
 echo "2. docker- 一键安装Surge-v4 shadow-tls v3"
 echo "3. 一键安装Hy2"
@@ -14,20 +14,21 @@ read -p "请选择一个操作（0、1、2、3、4、5或6）: " user_choice
 case $user_choice in
 0)
     echo "正在更新脚本..."
+    CURRENT_SCRIPT="$(basename $0)"
     TEMP_SCRIPT="temp_update_script.sh"
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/mian_surge_v4 -O "$TEMP_SCRIPT"
     if [ $? -eq 0 ]; then
         chmod +x "$TEMP_SCRIPT"
-        mv "$TEMP_SCRIPT" "$(basename $0)"
+        cp "$TEMP_SCRIPT" "$CURRENT_SCRIPT"
+        rm "$TEMP_SCRIPT"
         echo "脚本已更新。正在重新执行脚本..."
-        exec ./"$(basename $0)"
+        exec ./"$CURRENT_SCRIPT"
     else
         echo "更新失败，请检查网络连接或URL是否正确。"
         rm -f "$TEMP_SCRIPT"  # 确保删除临时文件
     fi
     exit 0
     ;;
-
 1)
     echo "正在安装Surge-v4..."
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/snellv4-docker -O snellv4-docker.sh
