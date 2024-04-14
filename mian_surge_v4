@@ -1,40 +1,53 @@
 #!/bin/bash
 
-echo "----------------欢迎使用surge docker--------------------"
-echo "1，一键安装surge-v4 shadow-tls v3"
-echo "2，一键安装surge-v4"
-echo "3，一键卸载（会卸载整个容器）除非你清楚自己在做什么，否则慎用"
-echo "4，一键安装hy2"
-read -p "请选择一个操作（1、2、3或4）: " user_choice
+echo "----------------欢迎使用Surge脚本工具--------------------"
+echo "选项列表："
+echo "1. 一键安装Surge-v4"
+echo "2. 一键安装Surge-v4 shadow-tls v3"
+echo "3. 一键安装Hy2"
+echo "4. 一键安装Senll-无docker版本"
+echo "5. 一键卸载（会卸载整个容器）- 除非你清楚自己在做什么，否则慎用"
+read -p "请选择一个操作（1、2、3、4或5）: " user_choice
 
 case $user_choice in
 1)
-    echo "正在安装surge-v4 shadow-tls v3..."
-    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/senll-tls.sh -O senll-tls.sh
-    chmod +x senll-tls.sh
-    ./senll-tls.sh
-    ;;
-2)
-    echo "正在安装surge-v4..."
+    echo "正在安装Surge-v4..."
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/snellv4-docker -O snellv4-docker.sh
     chmod +x snellv4-docker.sh
     ./snellv4-docker.sh
     ;;
-3)
-    echo "正在卸载surge-v4 shadow-tls v3..."
-    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/uninstll_surge_with_tls -O uninstll_surge_with_tls.sh
-    chmod +x uninstll_surge_with_tls.sh
-    ./uninstll_surge_with_tls.sh
+2)
+    echo "正在安装Surge-v4 shadow-tls v3..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/senll-tls.sh -O senll-tls.sh
+    chmod +x senll-tls.sh
+    ./senll-tls.sh
     ;;
-4)
-    echo "正在安装hy2..."
+3)
+    echo "正在安装Hy2..."
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/hy2.sh -O hy2.sh
     chmod +x hy2.sh
     ./hy2.sh
+    ;;
+4)
+    echo "正在安装Senll-无docker版本..."
+    wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/snell-none-tls.sh -O snell-none-tls.sh
+    chmod +x snell-none-tls.sh
+    ./snell-none-tls.sh
+    ;;
+5)
+    echo "警告：你将要卸载Surge-v4 shadow-tls v3，这会移除整个容器。"
+    read -p "确定要继续吗？(yes/no): " confirm
+    if [[ $confirm == "yes" ]]; then
+        echo "正在卸载..."
+        wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/uninstll_surge_with_tls -O uninstll_surge_with_tls.sh
+        chmod +x uninstll_surge_with_tls.sh
+        ./uninstll_surge_with_tls.sh
+    else
+        echo "卸载操作已取消。"
+    fi
     ;;
 *)
     echo "无效的输入，脚本退出。"
     exit 1
     ;;
 esac
-
