@@ -14,14 +14,12 @@ read -p "请选择一个操作（0、1、2、3、4、5或6）: " user_choice
 case $user_choice in
 0)
     echo "正在更新脚本..."
-    CURRENT_SCRIPT_PATH="$(realpath $0)"
-    CURRENT_SCRIPT="$(basename $CURRENT_SCRIPT_PATH)"
+    CURRENT_SCRIPT_PATH=$(realpath $0)
     TEMP_SCRIPT="temp_update_script.sh"
     wget https://raw.githubusercontent.com/Jaydooooooo/Suege-/main/mian_surge_v4 -O "$TEMP_SCRIPT"
     if [ $? -eq 0 ]; then
         chmod +x "$TEMP_SCRIPT"
-        cp "$TEMP_SCRIPT" "$CURRENT_SCRIPT_PATH"
-        rm "$TEMP_SCRIPT"
+        mv "$TEMP_SCRIPT" "$CURRENT_SCRIPT_PATH"
         echo "脚本已更新。正在重新执行脚本..."
         exec "$CURRENT_SCRIPT_PATH"
     else
